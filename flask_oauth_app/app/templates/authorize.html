@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script>
+        Office.onReady(() => {
+            // Simulate token generation from Flask server
+            const token = "your-jwt-token-here";
+
+            console.log("Sending token to taskpane:", token);  // Log before sending
+            try {
+                Office.context.ui.messageParent(token);
+                console.log("Token sent successfully.");  // Log after sending
+            } catch (error) {
+                console.error("Error sending message:", error);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Authorization</h1>
+    <p>Completing the authorization...</p>
+</body>
+
+</html>
